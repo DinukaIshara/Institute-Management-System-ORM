@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="868.0" prefWidth="1416.0" style="-fx-background-color: #fff#008cfffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SidePanelFormController">
+    <children>
+        <AnchorPane fx:id="childRootNode" layoutX="325.0" layoutY="75.0" prefHeight="775.0" prefWidth="1080.0" style="-fx-background-color: EEEEEEFF;" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="75.0" />
+        <AnchorPane prefHeight="860.0" prefWidth="317.0" style="-fx-background-color: white;">
+            <children>
+                <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="354.0" onAction="#btnStudentOnAction" prefHeight="65.0" prefWidth="270.0" style="-fx-background-radius: 15;" styleClass="nav-btn" text="Student" textFill="WHITE" AnchorPane.leftAnchor="25.0">
+                    <stylesheets>
+                        <URL value="@../css/sidePane.css" />
+                        <URL value="@../css/sidePane.css" />
+                    </stylesheets>
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="449.0" onAction="#btnProgrameOnAction" prefHeight="65.0" prefWidth="270.0" style="-fx-background-radius: 15;" styleClass="nav-btn" text="Programs" textFill="WHITE" AnchorPane.leftAnchor="25.0">
+                    <stylesheets>
+                        <URL value="@../css/sidePane.css" />
+                        <URL value="@../css/sidePane.css" />
+                    </stylesheets>
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="543.0" onAction="#btnRegistrationOnAction" prefHeight="65.0" prefWidth="270.0" style="-fx-background-radius: 15;" styleClass="nav-btn" text="Registrasion" textFill="WHITE" AnchorPane.leftAnchor="25.0">
+                    <stylesheets>
+                        <URL value="@../css/sidePane.css" />
+                        <URL value="@../css/sidePane.css" />
+                    </stylesheets>
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="636.0" onAction="#btnPaymentOnAction" prefHeight="65.0" prefWidth="270.0" style="-fx-background-radius: 15;" styleClass="nav-btn" text="Payment" textFill="WHITE" AnchorPane.leftAnchor="25.0">
+                    <stylesheets>
+                        <URL value="@../css/sidePane.css" />
+                        <URL value="@../css/sidePane.css" />
+                    </stylesheets>
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="770.0" onAction="#btnLogOutOnAction" prefHeight="65.0" prefWidth="270.0" stylesheets="@../css/sidePane.css" text="           Log out" textFill="WHITE" AnchorPane.leftAnchor="25.0">
+                    <styleClass>
+                        <String fx:value="logout" />
+                        <String fx:value="shadow" />
+                    </styleClass>
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="259.0" onAction="#btnDashboardOnAction" prefHeight="65.0" prefWidth="270.0" style="-fx-background-radius: 15;" styleClass="nav-btn" text="Dashboard" textFill="WHITE">
+               <stylesheets>
+                  <URL value="@../css/sidePane.css" />
+                  <URL value="@../css/sidePane.css" />
+               </stylesheets>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="248.0" fitWidth="295.0" layoutX="35.0" layoutY="-62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/The%20Culinary%20Academy.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+        <Label layoutX="1151.0" layoutY="42.0" text="Date :" textFill="#9e9e9e" AnchorPane.rightAnchor="203.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblDate" layoutX="1231.0" layoutY="43.0" prefHeight="21.0" prefWidth="168.0" text="date" textFill="#008fff" AnchorPane.rightAnchor="17.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
