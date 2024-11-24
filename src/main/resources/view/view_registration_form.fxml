@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="childRootNode" prefHeight="775.0" prefWidth="1145.0" style="-fx-background-color: EEEEEEFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ViewRegistrationFormController">
+   <children>
+      <TableView fx:id="tblViewRegistration" layoutX="48.0" layoutY="423.0" prefHeight="300.0" prefWidth="1049.0" stylesheets="@../css/sidePane.css">
+         <columns>
+            <TableColumn fx:id="colR_Id" prefWidth="107.0" text="R_ID" />
+            <TableColumn fx:id="colProgram_Id" prefWidth="126.0" text="Course_ID" />
+            <TableColumn fx:id="colPrograme_Name" prefWidth="312.0" text="Course_Name" />
+            <TableColumn fx:id="colFee" prefWidth="178.0" text="Fee(Rs.)" />
+            <TableColumn fx:id="colUpfrontPayment" prefWidth="175.0" text="Amount Paid" />
+            <TableColumn fx:id="colAmountPaybale" prefWidth="148.0" text="Amount Paybale" />
+         </columns>
+      </TableView>
+      <Button layoutX="48.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="131.0" styleClass="sale" stylesheets="@../css/style.css" text="Back">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="48.0" layoutY="106.0" prefHeight="293.0" prefWidth="1049.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="shadow1" stylesheets="@../../../../../../Desktop/Final-Project-Cnvert-Layerd-A/src/main/resources/css/sidePane.css">
+         <children>
+            <Label layoutX="25.0" layoutY="12.0" prefHeight="34.0" prefWidth="202.0" text="Search by Student ID">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtStudentId" layoutX="25.0" layoutY="52.0" onAction="#txtStudentIdOnAction" onKeyReleased="#txtStudentIdOnKeyReleased" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <Label layoutX="365.0" layoutY="12.0" prefHeight="34.0" prefWidth="202.0" text="Student Name">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtStudentName" layoutX="365.0" layoutY="52.0" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <AnchorPane fx:id="imgRootNode" layoutX="188.0" layoutY="108.0" prefHeight="156.0" prefWidth="142.0" style="-fx-background-color: EEEEEEFF;">
+               <children>
+                  <ImageView fx:id="imgProfilePic" fitHeight="163.0" fitWidth="143.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="25.0" layoutY="108.0" prefHeight="34.0" prefWidth="202.0" text="Student Pictuer">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="703.0" layoutY="12.0" prefHeight="34.0" prefWidth="202.0" text="NIC">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNIC" layoutX="704.0" layoutY="51.0" onAction="#txtNicOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <Label layoutX="710.0" layoutY="108.0" prefHeight="34.0" prefWidth="202.0" text="Contact">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtContact" layoutX="708.0" layoutY="151.0" onAction="#txtContactOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <Label layoutX="365.0" layoutY="108.0" prefHeight="34.0" prefWidth="173.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="365.0" layoutY="151.0" onAction="#txtEmailOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="966.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="42.0" prefWidth="131.0" styleClass="sale" stylesheets="@../css/style.css" text="Payment">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

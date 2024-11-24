@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="775.0" prefWidth="1145.0" style="-fx-background-color: EEEEEEFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ProgramFormController">
+   <children>
+      <TableView fx:id="tblProgram" layoutX="50.0" layoutY="98.0" onMouseClicked="#rowOnMouseClicked" prefHeight="235.0" prefWidth="1045.0" stylesheets="@../css/sidePane.css">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="137.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="453.0" text="NAME" />
+            <TableColumn fx:id="colDuration" prefWidth="262.0" text="DURATION" />
+            <TableColumn fx:id="colFee" prefWidth="192.0" text="FEE(Rs.)" />
+         </columns>
+      </TableView>
+      <TextField layoutX="50.0" layoutY="48.0" onAction="#txtSearchOnAction" prefHeight="34.0" prefWidth="391.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+      <Label layoutX="51.0" layoutY="355.0" prefHeight="34.0" prefWidth="138.0" text="Programe ID">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="474.0" layoutY="356.0" prefHeight="34.0" prefWidth="173.0" text="Program Name">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtProgramName" layoutX="474.0" layoutY="390.0" onAction="#txtPNameOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+      <Label layoutX="51.0" layoutY="430.0" prefHeight="34.0" prefWidth="202.0" text="Duration">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDuration" layoutX="51.0" layoutY="464.0" onAction="#txtDurationOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+      <Label layoutX="474.0" layoutY="431.0" prefHeight="34.0" prefWidth="202.0" text="Fee (Rs.)">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFee" layoutX="474.0" layoutY="465.0" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+      <TextField fx:id="txtProgramId" layoutX="51.0" layoutY="390.0" onAction="#txtPIdOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+      <Button layoutX="51.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="31.0" prefWidth="138.0" styleClass="sale" stylesheets="@../css/style.css" text="Save" AnchorPane.bottomAnchor="192.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="205.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="138.0" styleClass="sale" stylesheets="@../css/style.css" text="Update" AnchorPane.bottomAnchor="192.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="359.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="138.0" styleClass="sale" stylesheets="@../css/style.css" text="Delete" AnchorPane.bottomAnchor="192.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="515.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="138.0" styleClass="sale" stylesheets="@../css/style.css" text="Clear" AnchorPane.bottomAnchor="192.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

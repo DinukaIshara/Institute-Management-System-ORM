@@ -1,0 +1,31 @@
+
+.sale
+{
+    -fx-background-color:
+            linear-gradient(#84ff00, #00d224),
+            radial-gradient(center 50% -40%, radius 200%, #84ff00 45%, #00ff2a 50%);
+    -fx-background-radius: 6,5;
+    -fx-background-insets: 0,1;
+
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75),4,0,0,1);
+    -fx-text-fill: #ffffff;
+}
+
+.sale:hover
+{
+    -fx-background-color:
+            linear-gradient(#84ff00, #00d224),
+            radial-gradient(center 50% -40%, radius 200%, #00ff2a 45%, #84ff00 50%);
+    -fx-background-radius: 6,5;
+    -fx-background-insets: 0,1;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0.0, 0, 1);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight:bold;
+
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}

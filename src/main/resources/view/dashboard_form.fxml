@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="775.0" prefWidth="1145.0" style="-fx-background-color: EEEEEEFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardFormController">
+   <children>
+      <AnchorPane layoutX="48.0" layoutY="67.0" prefHeight="200.0" prefWidth="480.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="shadow1" stylesheets="@../../../../../../Desktop/Final-Project-Cnvert-Layerd-A/src/main/resources/css/sidePane.css">
+         <children>
+            <Label layoutX="41.0" layoutY="141.0" text="Total Students">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="labCutCount" layoutX="295.0" layoutY="85.0" prefHeight="31.0" prefWidth="5.0" text="o" textFill="#008fff">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="101.0" fitWidth="103.0" layoutX="76.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/student.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="605.0" layoutY="67.0" prefHeight="200.0" prefWidth="480.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="shadow1" stylesheets="@../../../../../../Desktop/Final-Project-Cnvert-Layerd-A/src/main/resources/css/sidePane.css">
+         <children>
+            <Label layoutX="72.0" layoutY="139.0" text="Total Courses">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderCount" layoutX="274.0" layoutY="85.0" prefHeight="31.0" prefWidth="49.0" text="0" textFill="#008fff">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="101.0" fitWidth="101.0" layoutX="82.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/course.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <BarChart fx:id="barChart" layoutX="31.0" layoutY="357.0" prefHeight="400.0" prefWidth="554.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <PieChart fx:id="pieChart" layoutX="646.0" layoutY="325.0" prefHeight="408.0" prefWidth="439.0" />
+   </children>
+</AnchorPane>
