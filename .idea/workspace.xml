@@ -4,8 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a54540d-3631-4c7b-bc69-bbcf2d741672" name="Changes" comment="add coordinator side panel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8a54540d-3631-4c7b-bc69-bbcf2d741672" name="Changes" comment="add all dependencies">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Launcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/LauncherWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Registration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/sidePane.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/The Culinary Academy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/course.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/eye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/icons8-user-60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/student.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icon/student_center.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/cordinatorSidePanel_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/payment_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/program_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registration_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/reset_password_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/sidePanel_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/student_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/user_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/view_registration_form.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/work" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +52,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,7 +75,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Chama Computers/IdeaProjects/ORM-project/src/main/resources/view",
+    "last_opened_file_path": "C:/Users/Chama Computers/IdeaProjects/ORM-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,11 +86,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project" />
+      <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project\src\main\java\lk\ijse\entity" />
       <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project\src\main\resources\view" />
       <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project\src\main\resources\icon" />
       <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project\src\main\resources\css" />
-      <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project\src\main\resources" />
-      <recent name="C:\Users\Chama Computers\IdeaProjects\ORM-project\src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -70,7 +104,7 @@
       <workItem from="1730525949483" duration="3459000" />
       <workItem from="1730511811180" duration="1997000" />
       <workItem from="1730776782546" duration="3513000" />
-      <workItem from="1732423167121" duration="1065000" />
+      <workItem from="1732423167121" duration="1737000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project">
       <option name="closed" value="true" />
@@ -96,7 +130,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732424217248</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add entities">
+      <option name="closed" value="true" />
+      <created>1732424412922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732424412922</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add all dependencies">
+      <option name="closed" value="true" />
+      <created>1732424629602</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732424629602</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +156,8 @@
     <MESSAGE value="Create Project" />
     <MESSAGE value="Add resources" />
     <MESSAGE value="add coordinator side panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="add coordinator side panel" />
+    <MESSAGE value="add entities" />
+    <MESSAGE value="add all dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all dependencies" />
   </component>
 </project>

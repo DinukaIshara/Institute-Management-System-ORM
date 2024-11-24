@@ -1,5 +1,6 @@
 package lk.ijse;
 
+import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -31,7 +32,7 @@ public class Main {
         configuration.setProperties(properties);
 
         //add annotated class to configure
-        //configuration.addAnnotatedClass(Student.class);
+        configuration.addAnnotatedClass(Student.class);
 
         //build session factory
         SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -39,10 +40,10 @@ public class Main {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-//        Student student = new Student();
-//        session.save(student);
-//        transaction.commit();
-//        session.close();
+        Student student = new Student();
+        session.save(student);
+        transaction.commit();
+        session.close();
 
 
 

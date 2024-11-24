@@ -1,4 +1,4 @@
-package lk.ijse.entity;
+package lk.ijse.tdm.tm;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,16 +7,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Data
-
 @Entity
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+public class ProgramTm {
     @Id
-    private String userName;
-    private String email;
-    private String password;
-    private String role;
+    String pId;
+    String pName;
+    String duration;
+    double fee;
+
 }

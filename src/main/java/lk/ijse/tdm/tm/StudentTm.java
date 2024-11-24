@@ -1,9 +1,7 @@
-package lk.ijse.entity;
+package lk.ijse.tdm.tm;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +9,13 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class Student {
+public class StudentTm {
     @Id
     private String s_id;
     private String s_name;
@@ -27,11 +24,6 @@ public class Student {
     private String email;
     private String address;
     private LocalDate dob;
-    private String age;
     private String gender;
     private String Path;
-
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Registration> registrationList;
-
 }
