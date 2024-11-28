@@ -1,33 +1,33 @@
 package lk.ijse.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double upfrontpayment;
     private double balance;
-
+    private LocalDate date;
     @ManyToOne
     private Student student;
+    @ManyToOne
+    private Program program;
 
     public Student getStudent() {
         return student;
     }
 
     public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Payment() {
-    }
-
-    public Payment(int id, double upfrontpayment, double balance, Student student) {
-        this.id = id;
-        this.upfrontpayment = upfrontpayment;
-        this.balance = balance;
         this.student = student;
     }
 

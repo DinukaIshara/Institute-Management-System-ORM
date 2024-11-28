@@ -27,14 +27,18 @@ public class Registration {
     @ManyToOne
     private Program program;
 
+    @OneToOne
+    private Payment payment;
+
     private LocalDate date;
     private double upfrontpayment;
     private double amoutPaybale;
 
-    public Registration(Student student, Program program, LocalDate date, double upfrontpayment, double amoutPaybale) {
+    public Registration(Student student, Program program, LocalDate date ,Payment payment,double upfrontpayment, double amoutPaybale) {
         this.student = student;
         this.program = program;
         this.date = date;
+        this.payment = payment;
         this.upfrontpayment = upfrontpayment;
         this.amoutPaybale = amoutPaybale;
     }
