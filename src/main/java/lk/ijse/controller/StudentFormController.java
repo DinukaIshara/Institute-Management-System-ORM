@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import lk.ijse.bo.BOFactory;
@@ -19,6 +21,7 @@ import java.io.File;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 public class StudentFormController {
@@ -86,6 +89,8 @@ public class StudentFormController {
     @FXML
     private TextField txtStudentId;
 
+    ObservableList<StudentTm> obList;
+
     StudentBO studentBO = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.Student);
 
     public void initialize(){
@@ -96,6 +101,7 @@ public class StudentFormController {
 
         ObservableList<String> list = FXCollections.observableArrayList("Male", "Female");
         cmbGender.setItems(list);
+        txtSearchStudent.setOnKeyPressed(this::handleEnterKey);
     }
 
     /*private void setValueChexBox() {
@@ -117,7 +123,7 @@ public class StudentFormController {
 
 
     private void loadAllStudents() {
-        ObservableList<StudentTm> obList = FXCollections.observableArrayList();
+        obList = FXCollections.observableArrayList();
         try {
             List<StudentDTO> studentList = studentBO.getAllCustomer();
             for (StudentDTO studentDTO : studentList) {
@@ -282,6 +288,7 @@ public class StudentFormController {
 
     void clearFields(){
         getCurrentStudentId();
+        txtSearchStudent.setText("");
         txtName.setText("");
         txtContact.setText("");
         txtNIC.setText("");
@@ -291,10 +298,46 @@ public class StudentFormController {
         txtAge.setText("");
         cmbGender.setValue("");
         imgProfilePic.setImage(null);
+        txtName.requestFocus();
     }
 
     public void cmbGenderOnAction(ActionEvent actionEvent) {
         String s = cmbGender.getSelectionModel().getSelectedItem().toString();
+    }
+
+    private void handleEnterKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            txtSearchStudentOnAction(txtSearchStudent.getText());
+        }
+    }
+
+    @FXML
+    void txtSearchStudentOnAction(String id) {
+        ObservableList<StudentTm> filteredList = obList.filtered(studentTm -> studentTm.getS_id().equals(id));
+        System.out.println(filteredList);
+
+        for (StudentTm item : filteredList) {
+            txtStudentId.setText(item.getS_id());
+            txtName.setText(item.getS_name());
+            txtNIC.setText(item.getS_nic());
+            Image image = new Image(item.getPath());
+            imgProfilePic.setImage(image);
+            txtEmail.setText(item.getEmail());
+            txtContact.setText(item.getContact_no());
+            txtAddress.setText(item.getAddress());
+            txtDOB.setValue(item.getDob());
+            LocalDate now = LocalDate.now();
+            txtAge.setText(String.valueOf(Period.between(item.getDob(), now).getYears()));
+            cmbGender.setValue(item.getGender());
+        }
+
+        tblStudent.setItems(filteredList);
+    }
+
+    @FXML
+    void btnViewAllOnAction(ActionEvent event) {
+        loadAllStudents();
+        clearFields();
     }
 
     @FXML

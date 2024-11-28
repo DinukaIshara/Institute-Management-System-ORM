@@ -102,5 +102,10 @@
             <Font name="System Bold" size="13.0" />
          </font></Button>
       <ComboBox fx:id="cmbGender" layoutX="617.0" layoutY="615.0" onAction="#cmbGenderOnAction" prefHeight="34.0" prefWidth="173.0" promptText="Select Gender" styleClass="blue-text-Field" stylesheets="@../css/sidePane.css" />
+      <Button layoutX="445.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnViewAllOnAction" prefHeight="31.0" prefWidth="138.0" styleClass="sale" stylesheets="@../css/style.css" text="View All">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

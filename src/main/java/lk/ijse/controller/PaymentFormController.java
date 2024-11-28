@@ -14,9 +14,11 @@ import lk.ijse.bo.custom.ProgramBO;
 import lk.ijse.bo.custom.StudentBO;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.entity.Payment;
+import lk.ijse.entity.Program;
 import lk.ijse.entity.Student;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class PaymentFormController {
     private DatePicker datePicker;
 
     @FXML
-    private Label lblRegisterId;
+    private Label lbPaymentId;
 
     @FXML
     private AnchorPane childRootNode;
@@ -52,8 +54,8 @@ public class PaymentFormController {
     @FXML
     private TextField txtStudentName;
 
-    @FXML
-    private TextField txtTotalPaid;
+    //@FXML
+    //private TextField txtTotalPaid;
 
     @FXML
     private TextField txtUpfrontPayment;
@@ -62,18 +64,48 @@ public class PaymentFormController {
     ProgramBO programBO = (ProgramBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.Programs);
     PaymentBO paymentBO = (PaymentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.Payment);
 
+    public void initialize() {
+        getCurrentPaymentId();
+        clearField();
+    }
+    private void getCurrentPaymentId() {
+        try {
+            int currentId = paymentBO.getCurrentPaymentId();
+            String nextOrderId = generateNextOrderId(currentId);
+            lbPaymentId.setText(nextOrderId);
+
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+    }
+
+    private String generateNextOrderId(int currentId) {
+        if(currentId != 0) {
+            int idNum = currentId;
+            System.out.println(idNum);
+            return "P-" + ++idNum;
+        }
+        return "P-1";
+    }
+
     @FXML
     void btnPayOnAction(ActionEvent event) {
 
         String studentId = txtStudentId.getText();
-        String payingamount = txtPayingAmount.getText();
+        String payingAmount = txtPayingAmount.getText();
+        LocalDate date = LocalDate.parse(txtDate.getText());
 
         Student student = new Student();
         student.setS_id(studentId);
 
+        Program program = new Program();
+        //program.getPId()
+
         Payment payment = new Payment();
-        payment.setUpfrontpayment(Double.parseDouble(payingamount));
+        payment.setUpfrontpayment(Double.parseDouble(payingAmount));
         payment.setStudent(student);
+        payment.setDate(date);
 
         boolean isSaved = paymentBO.savePayment(payment);
         if (isSaved) {
@@ -109,10 +141,10 @@ public class PaymentFormController {
 
         txtProgramFee.setText((String.valueOf(programPaymentDetails[0])));
         txtUpfrontPayment.setText(String.valueOf(programPaymentDetails[1]) );
-        txtTotalPaid.setText((String.valueOf(programPaymentDetails[2])));
+        //txtTotalPaid.setText((String.valueOf(programPaymentDetails[2])));
 
         Double balance = (Double) programPaymentDetails[0] - (Double) programPaymentDetails[2];
-        txtBalance.setText(balance.toString());
+        txtBalance.setText(String.valueOf(balance));
 
 
 
@@ -173,10 +205,10 @@ public class PaymentFormController {
     void clearField(){
         txtStudentId.setText("");
         txtStudentName.setText("");
-        txtProgramFee.setText("");
-        txtUpfrontPayment.setText("");
-        txtTotalPaid.setText("");
-        txtBalance.setText("");
+        txtProgramFee.setText("0/=");
+        txtUpfrontPayment.setText("0/=");
+        //txtTotalPaid.setText("");
+        txtBalance.setText("0/=");
         txtPayingAmount.setText("");
     }
 

@@ -15,10 +15,11 @@
          <columns>
             <TableColumn fx:id="colR_Id" prefWidth="107.0" text="R_ID" />
             <TableColumn fx:id="colProgram_Id" prefWidth="126.0" text="Course_ID" />
-            <TableColumn fx:id="colPrograme_Name" prefWidth="312.0" text="Course_Name" />
-            <TableColumn fx:id="colFee" prefWidth="178.0" text="Fee(Rs.)" />
-            <TableColumn fx:id="colUpfrontPayment" prefWidth="175.0" text="Amount Paid" />
-            <TableColumn fx:id="colAmountPaybale" prefWidth="148.0" text="Amount Paybale" />
+            <TableColumn fx:id="colPrograme_Name" prefWidth="239.0" text="Course_Name" />
+            <TableColumn fx:id="colFee" prefWidth="186.0" text="Fee(Rs.)" />
+            <TableColumn fx:id="colUpfrontPayment" prefWidth="149.0" text="Amount Paid" />
+            <TableColumn fx:id="colAmountPaybale" minWidth="0.0" prefWidth="141.0" text="Amount Paybale" />
+            <TableColumn fx:id="colSId" prefWidth="97.0" text="S_ID" />
          </columns>
       </TableView>
       <Button layoutX="48.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="131.0" styleClass="sale" stylesheets="@../css/style.css" text="Back">
@@ -68,12 +69,12 @@
                </font>
             </Label>
             <TextField fx:id="txtEmail" layoutX="365.0" layoutY="151.0" onAction="#txtEmailOnAction" prefHeight="34.0" prefWidth="325.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <Button layoutX="799.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnViewAllOnAction" prefHeight="42.0" prefWidth="230.0" styleClass="sale" stylesheets="@../css/style.css" text="View All Registrasion">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="966.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="42.0" prefWidth="131.0" styleClass="sale" stylesheets="@../css/style.css" text="Payment">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

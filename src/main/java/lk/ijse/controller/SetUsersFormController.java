@@ -27,6 +27,9 @@ public class SetUsersFormController {
     private TableColumn<?, ?> colemail;
 
     @FXML
+    private TableColumn<?, ?> colid;
+
+    @FXML
     private TableColumn<?, ?> colname;
 
     @FXML

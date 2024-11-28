@@ -6,38 +6,75 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="678.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UsersFormController">
+<AnchorPane fx:id="rootNode" prefHeight="775.0" prefWidth="1145.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SingUpFormController">
    <children>
-      <ImageView fitHeight="678.0" fitWidth="1028.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 50%;">
+      <ImageView fitHeight="678.0" fitWidth="1028.0" layoutX="234.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
          <image>
-            <Image url="@../icon/student_center.png" />
+            <Image url="@../icon/Logo.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="305.0" layoutY="87.0" prefHeight="555.0" prefWidth="406.0" style="-fx-background-color: blue;">
+      <AnchorPane layoutX="342.0" layoutY="58.0" prefHeight="661.0" prefWidth="462.0">
          <children>
-            <Button fx:id="btnSignUp" layoutX="45.0" layoutY="497.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="53.0" prefWidth="313.0" text="Sign Up" />
-            <Label layoutX="111.0" layoutY="8.0" text="Registration" textFill="WHITE">
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#00000029" height="539.0" layoutX="31.0" layoutY="62.0" stroke="#ffffffab" strokeType="INSIDE" width="406.0" />
+            <Line endX="106.4000244140625" layoutX="287.0" layoutY="152.0" startX="-210.0" stroke="WHITE">
+               <effect>
+                  <MotionBlur />
+               </effect>
+            </Line>
+            <Button fx:id="btnSignUp" layoutX="78.0" layoutY="508.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="53.0" prefWidth="313.0" styleClass="nav-btn" stylesheets="@../css/sidePane.css" text="Sign Up" />
+            <Label layoutX="78.0" layoutY="170.0" text="User Name :" />
+            <TextField fx:id="txtUserName" layoutX="77.0" layoutY="194.0" onAction="#txtUserNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="39.0" prefWidth="313.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <Label layoutX="78.0" layoutY="246.0" text="Role :" />
+            <ComboBox fx:id="cmbSelectRole" layoutX="78.0" layoutY="269.0" onAction="#cmbSelectRoleOnAction" prefHeight="34.0" prefWidth="313.0" promptText="Select Role" styleClass="blue-text-Field" stylesheets="@../css/sidePane.css" />
+            <Label layoutX="80.0" layoutY="316.0" text="Email : " />
+            <PasswordField fx:id="txtEmail" layoutX="79.0" layoutY="337.0" onAction="#txtEmailOnAction" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="39.0" prefWidth="313.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <PasswordField fx:id="txtPassword" layoutX="79.0" layoutY="408.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPassOnKeyReleased" prefHeight="39.0" prefWidth="313.0" styleClass="blue-box-text-field" stylesheets="@../css/sidePane.css" />
+            <Label layoutX="81.0" layoutY="386.0" text="Enter Password : " />
+            <Hyperlink layoutX="338.0" layoutY="453.0" onAction="#hypoSignInOnAction" text="Sign in" />
+            <Label layoutX="122.0" layoutY="96.0" text="Registration" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="220.0" text="Email :" textFill="WHITE" />
-            <TextField fx:id="txtEmail" layoutX="45.0" layoutY="251.0" onAction="#txtEmailOnAction" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="39.0" prefWidth="313.0" />
-            <Label layoutX="45.0" layoutY="299.0" text="Password : " textFill="WHITE" />
-            <Hyperlink layoutX="297.0" layoutY="457.0" onAction="#hypoSignInOnAction" text="Sign in" />
-            <Label layoutX="45.0" layoutY="140.0" text="Role :" textFill="WHITE" />
-            <Label layoutX="45.0" layoutY="61.0" text="User Name :" textFill="WHITE" />
-            <TextField fx:id="txtUserName" layoutX="45.0" layoutY="92.0" onAction="#txtUserNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefHeight="39.0" prefWidth="313.0" />
-            <ComboBox fx:id="cmbAdminCoordinator" layoutX="45.0" layoutY="167.0" prefHeight="34.0" prefWidth="313.0" promptText="Admin or coordinator" stylesheets="@../../../../../../Desktop/Student_Management_System_ORM-sherul/src/main/resources/css/style.css" />
-            <PasswordField fx:id="txtRePassword" layoutX="45.0" layoutY="409.0" onKeyReleased="#txtRePassOnKeyReleased" prefHeight="39.0" prefWidth="313.0" />
-            <PasswordField fx:id="txtPassword" layoutX="45.0" layoutY="325.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPassOnKeyReleased" prefHeight="39.0" prefWidth="313.0" />
-            <Label layoutX="46.0" layoutY="382.0" text="Re Enter Password : " textFill="WHITE" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="366.0" fitWidth="335.0" layoutX="796.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
+         <image>
+            <Image url="@../icon/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="366.0" fitWidth="335.0" layoutX="804.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
+         <image>
+            <Image url="@../icon/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="366.0" fitWidth="335.0" layoutX="804.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
+         <image>
+            <Image url="@../icon/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="366.0" fitWidth="335.0" layoutX="14.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
+         <image>
+            <Image url="@../icon/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="366.0" fitWidth="335.0" layoutX="22.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
+         <image>
+            <Image url="@../icon/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="366.0" fitWidth="335.0" layoutX="22.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 25%;">
+         <image>
+            <Image url="@../icon/Logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,14 +23,46 @@ public class SidePanelFormController {
     @FXML
     private AnchorPane rootNode;
 
+    @FXML
+    private JFXButton btnDashboard;
+
+    @FXML
+    private JFXButton btnPayment;
+
+    @FXML
+    private JFXButton btnPrograme;
+
+    @FXML
+    private JFXButton btnRegistration;
+
+    @FXML
+    private JFXButton btnStudent;
+
+    @FXML
+    private JFXButton btnUser;
+
+    LoginFormController loginFormController = new LoginFormController();
+
+    //String role = UserSession.getInstance().getRole();
+
     public void initialize() {
         try {
             btnDashboardOnAction();
+            checkLoggedUser();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         setDate();
+    }
+
+    void checkLoggedUser() {
+        if (loginFormController.getRole().equals("Coordinator")){
+            btnUser.setVisible(false);
+            btnPrograme.setVisible(false);
+            btnPayment.setVisible(false);
+            btnRegistration.setVisible(false);
+        }
     }
 
     private void setDate() {
@@ -82,6 +115,13 @@ public class SidePanelFormController {
     @FXML
     void btnStudentOnAction(ActionEvent event) throws IOException {
         AnchorPane dashRootNode = FXMLLoader.load(this.getClass().getResource("/view/student_form.fxml"));
+        childRootNode.getChildren().clear();
+        childRootNode.getChildren().add(dashRootNode);
+    }
+
+    @FXML
+    void btnUserOnAction(ActionEvent event) throws IOException {
+        AnchorPane dashRootNode = FXMLLoader.load(this.getClass().getResource("/view/user_set_form.fxml"));
         childRootNode.getChildren().clear();
         childRootNode.getChildren().add(dashRootNode);
     }
