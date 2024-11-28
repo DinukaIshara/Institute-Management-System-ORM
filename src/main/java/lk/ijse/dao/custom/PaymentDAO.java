@@ -6,4 +6,6 @@ import org.hibernate.Session;
 
 public interface PaymentDAO extends CrudDAO<Payment> {
     public boolean savePayment(Payment entity, Session session);
+
+    public int getCurrentId();
 }

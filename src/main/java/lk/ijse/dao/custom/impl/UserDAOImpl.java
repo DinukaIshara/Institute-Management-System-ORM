@@ -1,154 +1,161 @@
 package lk.ijse.dao.custom.impl;
 
-import javafx.scene.control.Alert;
+import jakarta.persistence.NoResultException;
 import lk.ijse.config.FactoryConfiguration;
 import lk.ijse.dao.custom.UserDAO;
-import lk.ijse.entity.Student;
 import lk.ijse.entity.User;
-import lk.ijse.util.PasswordUtil;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
-import org.hibernate.query.Query;
 
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     @Override
-    public boolean save(User entity) {
+    public boolean ifHaveAdmins() {
+        boolean ishaveadmins = false;
         Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        Object user = session.save(entity);
-        System.out.println(user);
+        String hql = "from User where role='admin'";
+        try {
+            ishaveadmins = session.createQuery(hql).list().size() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ishaveadmins;
+    }
 
-        if (user != null) {
-            transaction.commit();
-            session.close();
+    @Override
+    public boolean saveUser(User user) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
             return true;
-        }else{
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
             return false;
         }
     }
 
     @Override
-    public boolean update(User entity) {
+    public User getdatas(String username) {
+        System.out.println("User name DAO - "+username);
+        Session session = FactoryConfiguration.getInstance().getSession();
+        User user = null;
+
+        try {
+            String hql = "FROM User WHERE username = :userName";
+            user = session.createQuery(hql, User.class)
+                    .setParameter("userName", username)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            // Handle the case where no result is found
+            System.out.println("No user found with userid: " + username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return user;
+    }
+
+    @Override
+    public boolean deleteUser(String username) {
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            session.beginTransaction();
+            session.delete(getdatas(username));
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return false;
+        }
+    }
+
+
+
+    @Override
+    public List<User> getAllUsers() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        String hql = "from User";
+
+        return session.createQuery(hql, User.class).list();
+    }
+
+    @Override
+    public boolean changePassword(String username, String password) {
+        System.out.println("User Name - "+username);
+        System.out.println(password);
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        try {
+            session.beginTransaction();
+            String hql = "UPDATE User SET password = :password WHERE username = :userName";
+            session.createQuery(hql)
+                    .setParameter("password", password)
+                    .setParameter("userName", username)
+                    .executeUpdate();
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkemail(String email) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        String hql = "FROM User WHERE email = :email";
+        try {
+            User user = session.createQuery(hql, User.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean save(User entity) {
         return false;
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean update(User entity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
-            Session session = FactoryConfiguration.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
-
-            Query query = session.createQuery("delete from User where userName = ?1");
-            query.setParameter(1, id);
-            boolean isDelete = query.executeUpdate() > 0;
-            transaction.commit();
-            session.close();
+            session.beginTransaction();
+            String hql = "UPDATE User SET username = :userName, email = :email, password = :password, role = :role WHERE email = :email";
+            session.createQuery(hql)
+                    .setParameter("userName", entity.getUsername())
+                    .setParameter("password", entity.getPassword())
+                    .setParameter("email", entity.getEmail())
+                    .setParameter("role", entity.getRole())
+                    .executeUpdate();
+            session.getTransaction().commit();
             return true;
-
-        } catch (HibernateException e) {
-            new Alert(Alert.AlertType.CONFIRMATION,e.getMessage()).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
             return false;
         }
+    }
 
+    @Override
+    public boolean delete(String id) {
+        return false;
     }
 
     @Override
     public List<User> getAll() {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        try {
-            Transaction transaction = session.beginTransaction();
-
-            Query query = session.createQuery("FROM User ");
-
-            List<User> users = query.list();
-            session.close();
-            return users;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            session.close();
-        }
-    }
-
-    @Override
-    public User searchByName(String userNameText) {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        try {
-
-            Transaction transaction = session.beginTransaction();
-
-            Query query = session.createQuery("FROM User WHERE userName=:userName");
-            query.setParameter("userName", userNameText);
-            User user = (User) query.uniqueResult();
-            if (user != null) {
-                return user;
-            }else{
-
-                return null;
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            session.close();
-        }
-
-    }
-
-    public void initializeDefaultUser(){
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        try {
-            NativeQuery nativeQuery = session.createNativeQuery("SHOW TABLES LIKE 'user'");
-
-            boolean isUserTableExist = nativeQuery.uniqueResult() == null;
-
-            if (isUserTableExist) {
-                String hasedPass = PasswordUtil.hashPassword("1111");
-                //session.createNativeQuery("CREATE TABLE user(userName)")
-                User user = new User("admin",hasedPass,"Admin","admin@gmail.com");
-                session.save(user);
-
-            }
-            transaction.commit();
-        } catch (HibernateException e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-
-    @Override
-    public boolean updatePassword(String newPassword, String userName) {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        try {
-
-            Transaction transaction = session.beginTransaction();
-            Query query = session.createQuery("UPDATE User SET password=:userPassword WHERE userName=:username");
-
-            query.setParameter("username", userName);
-            query.setParameter("userPassword", newPassword);
-            boolean isUpdatedPass = query.executeUpdate() > 0;
-            if (isUpdatedPass) {
-                return true;
-            }else{
-                return false;
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            session.close();
-        }
-
+        return null;
     }
 }

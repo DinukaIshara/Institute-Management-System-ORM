@@ -10,4 +10,6 @@ public interface RegistrationDAO extends CrudDAO<Registration> {
     boolean saveRegistration(List<Registration> registrationList, Session session);
 
     int getCurrentId();
+
+    int registrationCount();
 }

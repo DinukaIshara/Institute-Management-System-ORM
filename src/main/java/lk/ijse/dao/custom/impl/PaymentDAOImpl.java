@@ -4,8 +4,10 @@ import javafx.scene.control.Alert;
 import lk.ijse.config.FactoryConfiguration;
 import lk.ijse.dao.custom.PaymentDAO;
 import lk.ijse.entity.Payment;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -51,5 +53,28 @@ public class PaymentDAOImpl implements PaymentDAO {
              new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
              return false;
         }
+    }
+
+    @Override
+    public int getCurrentId() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Integer id = 0;
+        try {
+            String hql = "SELECT p.id FROM Payment p ORDER BY p.id DESC";
+            Query query = session.createQuery(hql);
+            query.setMaxResults(1); // Limit the result to only 1 item
+            id = (Integer) query.uniqueResult();
+            session.close();
+            if(id != null){
+                System.out.println(id);
+                return id;
+
+            }
+
+        } catch (HibernateException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        System.out.println(id);
+        return 0;
     }
 }

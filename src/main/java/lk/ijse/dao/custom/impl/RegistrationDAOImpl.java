@@ -62,6 +62,14 @@ public class RegistrationDAOImpl implements RegistrationDAO {
     }
 
     @Override
+    public int registrationCount() {
+        Session session=FactoryConfiguration.getInstance().getSession();
+        String hql="select count(rid) from Registration";
+        jakarta.persistence.Query query=session.createQuery(hql);
+        return Integer.parseInt(query.getSingleResult().toString());
+    }
+
+    @Override
     public boolean save(Registration entity) {
         return false;
     }
