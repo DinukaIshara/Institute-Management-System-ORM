@@ -19,4 +19,9 @@ public class PaymentBOImpl implements PaymentBO {
     public boolean savePayment(Payment payment){
         return paymentDAO.save(payment);
     }
+
+    @Override
+    public int getCurrentPaymentId() {
+        return paymentDAO.getCurrentId();
+    }
 }

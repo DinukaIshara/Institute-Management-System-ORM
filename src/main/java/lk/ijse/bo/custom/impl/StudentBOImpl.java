@@ -6,6 +6,7 @@ import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
+import lk.ijse.entity.User;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -49,6 +50,16 @@ public class StudentBOImpl implements StudentBO {
     public boolean delete(String id){
         return studentDAO.delete(id);
     }
+
+    public List<Student> getStudentWithEnrolledPrograms(){
+        return studentDAO.getStudentWithEnrolledPrograms();
+    }
+
+    @Override
+    public int StudentCount() {
+        return studentDAO.StudentCount();
+    }
+
 
 
 }

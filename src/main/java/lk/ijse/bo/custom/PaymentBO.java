@@ -7,4 +7,6 @@ public interface PaymentBO extends SuperBO {
     public Object[] getProgramPaymentDetails(String studentId, String programId);
 
     public boolean savePayment(Payment payment);
+
+    int getCurrentPaymentId();
 }

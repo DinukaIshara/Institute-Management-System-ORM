@@ -1,5 +1,6 @@
 package lk.ijse.bo.custom;
 
+import javafx.collections.ObservableList;
 import lk.ijse.bo.SuperBO;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.entity.User;
@@ -7,18 +8,19 @@ import lk.ijse.entity.User;
 import java.util.List;
 
 public interface UserBO extends SuperBO {
-    /*public UserDTO getAll(String userNameText);*/
+    UserDTO getdata(String username);
 
+    boolean saveUser(UserDTO userDTO);
 
-    User searchUserbyName(String userNameText);
+    UserDTO getUser(String username);
 
-    public void intializeDefaultUser();
+    boolean deleteUser(String ids);
 
-    boolean saveUser(User userDTO);
+    boolean updateUser(UserDTO userDTO);
 
-    List<UserDTO> getAllUser();
+    ObservableList<UserDTO> getAllUsers();
 
-    boolean deleteUser(String userName);
+    boolean changePassword(String userName, String password);
 
-    boolean updateUserPassword(String newpassword, String userName);
+    boolean checkemail(String email);
 }
